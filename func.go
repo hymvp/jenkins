@@ -11,21 +11,21 @@ import (
 )
 
 func main() {
-        fdk.Handle(fdk.HandlerFunc(myHandler))
+	fdk.Handle(fdk.HandlerFunc(myHandler))
 }
 
 type Person struct {
-        Name string `json:"name"`
+	Name string `json:"name"`
 }
 
 func myHandler(ctx context.Context, in io.Reader, out io.Writer) {
-        p := &Person{Name: "World"}
-        json.NewDecoder(in).Decode(p)
-        msg := struct {
-                Msg string `json:"message"`
-        }{
-                Msg: fmt.Sprintf("Hi %s", p.Name),
-        }
-        log.Print("Inside Go Hello World function")
-        json.NewEncoder(out).Encode(&msg)
+	p := &Person{Name: "World"}
+	json.NewDecoder(in).Decode(p)
+	msg := struct {
+		Msg string `json:"message"`
+	}{
+		Msg: fmt.Sprintf("Hi1 %s", p.Name),
+	}
+	log.Print("Inside Go Hello World function")
+	json.NewEncoder(out).Encode(&msg)
 }
