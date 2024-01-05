@@ -24,7 +24,7 @@ func myHandler(ctx context.Context, in io.Reader, out io.Writer) {
 	msg := struct {
 		Msg string `json:"message"`
 	}{
-		Msg: fmt.Sprintf("Hi1 %s", p.Name),
+		Msg: fmt.Sprintf("Hi17 %s", p.Name),
 	}
 	log.Print("Inside Go Hello World function")
 	json.NewEncoder(out).Encode(&msg)
